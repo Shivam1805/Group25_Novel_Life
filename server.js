@@ -28,7 +28,7 @@ const helpRoute = require('./src/backend/Route/helpRoute');
 app.use('/api/assist',helpRoute)
 
 const userRoute = require('./src/backend/Route/userRoute');
-app.use('/user', userRoute);
+app.use('/api/user', userRoute);
 
 const eduRoute = require('./src/backend/Route/eduRoute');
 app.use('/api/edu', eduRoute);

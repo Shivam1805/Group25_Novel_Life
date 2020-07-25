@@ -1,13 +1,97 @@
 import React, { Component } from "react";
-import { Layout, Menu } from "antd";
+import { Layout, Menu, Row, Col, Modal, message } from "antd";
+
+import Axios from "axios";
+import Cookies from "js-cookie";
 import {
-  DesktopOutlined,
-  PieChartOutlined
+  DisconnectOutlined,
+  PieChartOutlined,
+  UserOutlined,
+  UserDeleteOutlined,
+  FormOutlined,
 } from "@ant-design/icons";
+import ProfilePage from "./ProfilePage";
+import ChangePassword from "./changePassword";
 const { Sider } = Layout;
 class Profile extends Component {
+  constructor(props) {
+    super(props);
+  }
   state = {
+    visible: false,
     collapsed: false,
+    profile: true,
+    password: false,
+  };
+
+  onChange(e, index) {
+    console.log(index);
+    if (index === 1) {
+      this.setState({
+        profile: true,
+        password: false,
+      });
+    } else if (index === 2) {
+      this.setState({
+        profile: false,
+        password: true,
+      });
+    } else {
+      this.logout();
+    } 
+  }
+  showModal = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+   logout(){
+    this.setState({
+      visible: false,
+    });
+    console.log(Cookies.get("User"));
+    Axios.post("http://localhost:8080/api/user/logout", {
+      email: Cookies.get("User"),
+    })
+      .then((response) => {
+        if (response.statusText === "OK") {
+          Cookies.set("User", "");
+          this.props.history.push("/");
+          setTimeout(() => {
+            message.success(
+              { content: "Logged out Successfully", duration: 2 },
+              1000
+            );
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  handleOk=(e)=> {
+    Axios.delete("http://localhost:8080/api/user/" + Cookies.get("User"))
+      .then((response) => {
+        if (response.statusText === "OK") {
+          Cookies.set("User", "");
+          this.props.history.push("/");
+          setTimeout(() => {
+            message.success(
+              { content: "Account Deleted Successfully", duration: 2 },
+              1000
+            );
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  handleCancel = (e) => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
   };
 
   onCollapse = (collapsed) => {
@@ -15,23 +99,82 @@ class Profile extends Component {
     this.setState({ collapsed });
   };
   render() {
+    let selectedComponent = <ProfilePage />;
+    if (this.state.profile) {
+      selectedComponent = <ProfilePage />;
+    } else if (this.state.password) {
+      selectedComponent = <ChangePassword />;
+    }
     return (
-        <Sider
-          style={{marginTop:"50px", minHeight:"600px"}}
-          collapsible
-          collapsed={this.state.collapsed}
-          onCollapse={this.onCollapse}
+      <Row type="flex">
+        <Col flex="150px">
+          <Sider
+            style={{ marginTop: "300px", minHeight: "350px" }}
+            collapsible
+            collapsed={this.state.collapsed}
+            onCollapse={this.onCollapse}
+          >
+            <div className="logo" />
+            <Menu
+              theme="dark"
+              defaultSelectedKeys={["1"]}
+              mode="inline"
+              onChange={this.onChange}
+            >
+              <Menu.Item
+                key="1"
+                value="1"
+                onClick={(event) => this.onChange(event, 1)}
+                icon={<PieChartOutlined />}
+              >
+                Profile
+              </Menu.Item>
+              <Menu.Item
+                key="2"
+                value="2"
+                onClick={(event) => this.onChange(event, 2)}
+                icon={<FormOutlined />}
+              >
+                Change Password
+              </Menu.Item>
+              <Menu.Item
+                key="3"
+                value="3"
+                onClick={(event) => this.onChange(event, 3)}
+                icon={<DisconnectOutlined />}
+              >
+                Logout
+              </Menu.Item>
+              <Menu.Item
+                key="4"
+                value="4"
+                onClick={this.showModal}
+                icon={<UserDeleteOutlined />}
+              >
+                Delete profile
+              </Menu.Item>
+            </Menu>
+          </Sider>
+        </Col>
+        <Col
+          style={{
+            justifyContent: "center",
+            marginTop: "100px",
+            marginLeft: "100px",
+          }}
+          flex="auto"
         >
-          <div className="logo" />
-          <Menu theme="dark" defaultSelectedKeys={["1"]} mode="inline">
-            <Menu.Item key="1" icon={<PieChartOutlined />}>
-              Option 1
-            </Menu.Item>
-            <Menu.Item key="2" icon={<DesktopOutlined />}>
-              Option 2
-            </Menu.Item>
-          </Menu>
-        </Sider>
+          {selectedComponent}
+        </Col>
+        <Modal
+          title="Delete Account"
+          visible={this.state.visible}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
+        >
+          <p>Are you sure you want to delete your account</p>
+        </Modal>
+      </Row>
     );
   }
 }

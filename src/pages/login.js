@@ -1,6 +1,6 @@
 import React from "react";
 import Axios from "axios";
-import { Row , Col} from "antd";
+import { Row , Col, message} from "antd";
 import { Form } from "react-bootstrap";
 import "antd/dist/antd.css";
 
@@ -31,7 +31,7 @@ class LoginPage extends React.Component {
   handleSuccessfulLogin(data){
     console.log(data)
     this.props.handleLogin(data);
-    this.props.history.push("/profile");
+    this.props.history.push("/");
   }
 
   handleChange = (event) => {
@@ -66,7 +66,7 @@ class LoginPage extends React.Component {
       errors.formPassword = "Please fill out Password!";
     }
     if (validateForm(errors)) {
-      Axios.post("http://localhost:8080/user/authenticate", {
+      Axios.post("http://localhost:8080/api/user/authenticate", {
         email: formEmail,
         password: formPassword,
       })
@@ -79,9 +79,14 @@ class LoginPage extends React.Component {
         })
         .catch((error) => {
           console.log(error);
+          setTimeout(()=>{
+            message.error({content:"Invalid Email or Password!!", duration: 2},1000);
+          })
         });
     } else {
-      alert("Invalid Email or Password");
+      setTimeout(()=>{
+        message.error({content:"Invalid Email or Password!!", duration: 2},1000);
+      })
     }
     this.setState({ errors, errors });
   };
