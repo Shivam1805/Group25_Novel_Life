@@ -33,5 +33,9 @@ app.use('/api/user', userRoute);
 const eduRoute = require('./src/backend/Route/eduRoute');
 app.use('/api/edu', eduRoute);
 
+app.get('*', (req,res) => {
+    res.sendFile(path.join(__dirname + "/public/index.html"))
+})
+
 //start the app by listening on default port
 app.listen(process.env.PORT || 8080);
