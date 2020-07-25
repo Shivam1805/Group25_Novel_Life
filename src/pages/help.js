@@ -42,10 +42,12 @@ class Help extends React.Component {
       this.setState({emailValue: e.target.value})
   }
 
+// To capture users complaint
   onComplaintChange = (e) =>{
     this.setState({complaintvalue: e.target.value})
 }
 
+// To send users complaints
 onSubmitform = (e) => {
   e.preventDefault();
   Axios.post('https://novellife.herokuapp.com/api/assist/complaint', {
