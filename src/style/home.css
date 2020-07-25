@@ -1,0 +1,41 @@
+.list-title {
+  font-size: 1.3rem;
+  color: #1e90ff;
+  padding: 0 0.5rem;
+}
+.list-context {
+  color: #777;
+  padding: 0.5rem;
+}
+.list-icon {
+  padding: 0.5rem 0;
+  color: #aaa;
+}
+.list-icon span {
+  display: inline-block;
+  padding: 0 5px;
+}
+table {
+  width:100%;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+table#t01 tr:nth-child(even) {
+  background-color: #eee;
+  color: black;
+}
+table#t01 tr:nth-child(odd) {
+ background-color: #fff;
+ color: black;
+}
+table#t01 th {
+  background-color: black;
+  color:white;
+  
+}
