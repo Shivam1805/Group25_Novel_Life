@@ -26,7 +26,7 @@ class Help extends React.Component {
   }
 
   componentDidMount(){
-      Axios.get('http://localhost:8080/api/assist/')
+      Axios.get('https://novellife.herokuapp.com/api/assist/')
       .then(res=>{
           this.setState({
             data: res.data
@@ -48,7 +48,7 @@ class Help extends React.Component {
 
 onSubmitform = (e) => {
   e.preventDefault();
-  Axios.post('http://localhost:8080/api/assist/complaint', {
+  Axios.post('https://novellife.herokuapp.com/api/assist/complaint', {
     email: this.state.emailValue,
     complaint: this.state.complaintvalue
   })
