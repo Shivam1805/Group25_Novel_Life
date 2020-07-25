@@ -21,7 +21,6 @@
     "generate-password": "^1.5.1",
     "google-map-react": "^1.1.7",
     "http-server": "^0.12.3",
-    "js-cookie": "^2.2.1",
     "mapbox-gl": "^1.11.0",
     "mongoose": "^5.9.25",
     "nodemailer": "^6.4.10",
@@ -37,8 +36,7 @@
     "yup": "^0.29.1"
   },
   "scripts": {
-    "start": "node server.js",
-    
+    "start": "node server.js"
   },
   "eslintConfig": {
     "extends": "react-app"
