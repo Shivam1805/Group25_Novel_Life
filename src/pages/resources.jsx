@@ -1,3 +1,5 @@
+// @author : Rishabh Baheti
+
 import React, { Component } from "react";
 import { Carousel } from "antd";
 import "../style/resource.css";
