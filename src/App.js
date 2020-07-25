@@ -18,7 +18,7 @@ import ProtectedRoute from "./pages/ProtectedRoute";
 import Profile from "./pages/UserManagement";
 import RegistrationPage from "./pages/signup";
 import ForgotPassword from "./pages/forgotPassword";
-
+import Travel from "./pages/travel";
 import Map from "./pages/map";
 import Data from "./pages/data";
 import "./style/comm.css";
@@ -30,10 +30,8 @@ import {
   PieChartOutlined,
   EnvironmentOutlined,
   SmileOutlined,
-  HeartOutlined,
+  CarOutlined,
   CloudOutlined,
-  TeamOutlined,
-  CoffeeOutlined,
   CheckCircleOutlined,
   MoneyCollectOutlined,
 } from "@ant-design/icons";
@@ -164,6 +162,10 @@ export default class App extends Component {
                 <MoneyCollectOutlined />
                 <Link to="/fundchecker">funding</Link>
               </Menu.Item>
+              <Menu.Item key="12">
+                <CarOutlined />
+                <Link to="/travel">Travel</Link>
+              </Menu.Item>
             </Menu>
           </Header>
           <Content
@@ -239,7 +241,7 @@ export default class App extends Component {
                 component={NegativeCheck}
               ></Route>
               <Route path="/resource/" exact component={Resource} />
-
+              <Route path="/travel/" exact component={Travel} />
               <Route path="/map/" exact component={Map} />
               <Route path="/data/" exact component={Data} />
               <Route
