@@ -50,7 +50,7 @@ class Profile extends Component {
       visible: false,
     });
     console.log(Cookies.get("User"));
-    Axios.post("http://localhost:8080/api/user/logout", {
+    Axios.post("https://novellife.herokuapp.com/api/user/logout", {
       email: Cookies.get("User"),
     })
       .then((response) => {
@@ -70,7 +70,7 @@ class Profile extends Component {
       });
   }
   handleOk=(e)=> {
-    Axios.delete("http://localhost:8080/api/user/" + Cookies.get("User"))
+    Axios.delete("https://novellife.herokuapp.com/api/user/" + Cookies.get("User"))
       .then((response) => {
         if (response.statusText === "OK") {
           Cookies.set("User", "");

@@ -13,7 +13,7 @@ import {
 class ProfilePage extends Component {
   state = { name: "", email: "", contactNo: "" };
   getDetails() {
-    Axios.post("http://localhost:8080/api/user/current", {
+    Axios.post("https://novellife.herokuapp.com/api/user/current", {
       email: Cookies.get("User"),
     })
       .then((response) => {

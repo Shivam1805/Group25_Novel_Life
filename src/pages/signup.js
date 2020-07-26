@@ -172,7 +172,7 @@ class RegistrationPage extends React.Component {
         if (this.state.phoneNumber.match(/^[0-9]{10}$/)) {
           if (this.state.formpassword.length >= 6) {
             if (this.state.confirmPassword == this.state.formpassword) {
-              Axios.post("http://localhost:8080/api/user/register", {
+              Axios.post("https://novellife.herokuapp.com/api/user/register", {
                 name: this.state.formName,
                 email: this.state.emailID,
                 password: this.state.formpassword,

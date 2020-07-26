@@ -66,7 +66,7 @@ class LoginPage extends React.Component {
       errors.formPassword = "Please fill out Password!";
     }
     if (validateForm(errors)) {
-      Axios.post("http://localhost:8080/api/user/authenticate", {
+      Axios.post("https://novellife.herokuapp.com/api/user/authenticate", {
         email: formEmail,
         password: formPassword,
       })

@@ -12,7 +12,7 @@ function EduHelp() {
     useEffect(() => { 
         axios
             .all([
-                axios.get("http://localhost:8080/api/edu"),
+                axios.get("https://novellife.herokuapp.com/api/edu"),
             ])
             .then((responseArr) => {
                 setResults(responseArr[0].data);

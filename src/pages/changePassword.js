@@ -48,7 +48,7 @@ class changePassword extends Component {
       errors.formNewPassword = "Please fill out Password!";
     }
     if (validateForm(errors)) {
-      Axios.put("http://localhost:8080/api/user/" + Cookies.get("User"), {
+      Axios.put("https://novellife.herokuapp.com/api/user/" + Cookies.get("User"), {
         password: formNewPassword,
       })
         .then((response) => {

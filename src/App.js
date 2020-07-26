@@ -51,7 +51,7 @@ export default class App extends Component {
   checkLoginStatus() {
     console.log(Cookies.get("User"));
     if (Cookies.get("User")) {
-      Axios.post("http://localhost:8080/api/user/current", {
+      Axios.post("https://novellife.herokuapp.com/api/user/current", {
         email: Cookies.get("User"),
       })
         .then((response) => {
