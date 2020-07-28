@@ -15,7 +15,7 @@
 - [Built With](#built-with)
 
 ## Live display
-[Novel Life App deployed to Heroku](https://novallife.herokuapp.com/)
+[Novel Life App deployed to Heroku](https://novellife.herokuapp.com/)
 
 ## Introduction
 
