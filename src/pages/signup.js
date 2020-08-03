@@ -180,7 +180,6 @@ class RegistrationPage extends React.Component {
                 .then((response) => {
                   if (response.statusText === "OK") {
                     this.handleSuccessfulRegistration(response.data);
-                    console.log(response.data);
                   } else {
                     this.setState({
                       open: true,
@@ -190,7 +189,6 @@ class RegistrationPage extends React.Component {
                   // setUserSession(response.data.id, response.data.email)
                 })
                 .catch((error) => {
-                  console.log("In catch " + error.message);
                   setTimeout(() => {
                     message.error(
                       { content: "Invalid Email or Password!!", duration: 2 },
