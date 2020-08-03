@@ -9,6 +9,6 @@ var EduSchema = new mongoose.Schema({
 },
 {collection:'eduhelp'});
 
-EduSchema.set('toJSON', { virtuals: true });
+// EduSchema.set('toJSON', { virtuals: true });
 
 module.exports = mongoose.model("eduHelp", EduSchema);

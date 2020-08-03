@@ -1,13 +1,12 @@
 // @author : Rishabh Baheti
 
 
-// import React, { Component } from 'react';
-import React, {useEffect, useState, Component } from "react";
+import React, {useEffect, useState } from "react";
 import {Card, Nav} from 'react-bootstrap';
 import axios from "axios";
+import "../style/card.css";
 
 function EduHelp() {
-    const [latest,setLatest] = useState([]);
     const [results, setResults] =useState([]);
     useEffect(() => { 
         axios
@@ -26,17 +25,19 @@ function EduHelp() {
 
     return (
         <div>
-        <h1 style={{color:"#FFFFFF"}}>EDUCATIONAL RESOURCES</h1>
-        <div className="card-wrap" style={{display:"flex"}}>
+        <h1 className="row-heading">EDUCATIONAL RESOURCES</h1>
+        <div className="card-wrapper">
         {
             results.map( data=> {
                 return(
-                    <Card style={{ width:"16rem",padding:"0 15px", textAlign:"center", minHeight: "100%"}} className=""  key={data.id}>
-                        <Card.Title style={{ background:"#fff",fontSize:"20px", padding: "15px", borderRadius: "5px", textTransform:"capitalize", minHeight: "100%",display: "flex",flexDirection: "column",justifyContent: "space-between"}}>
-                        <Card.Img  src={data.path} style={{ width:"100"}}/>
-                        <Nav.Link href={data.hyperlink} target="_blank">{data.name}</Nav.Link>
-                        </Card.Title>
-                    </Card>
+                    <div style={{minHeight:"100%"}} className="class-card" key={data._id}>
+                        <Card style={{height:"100%"}} >
+                            <Card.Title className="class-title-card">
+                            <Card.Img  src={data.path} style={{ width:"100"}}/>
+                            <Nav.Link href={data.hyperlink} target="_blank">{data.name}</Nav.Link>
+                            </Card.Title>
+                        </Card>
+                    </div>
                          
                 );
             })

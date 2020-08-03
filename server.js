@@ -33,6 +33,9 @@ app.use('/api/user', userRoute);
 const eduRoute = require('./src/backend/Route/eduRoute');
 app.use('/api/edu', eduRoute);
 
+const mentalRoute = require('./src/backend/Route/mentalRoute');
+app.use('/api/mental', mentalRoute);
+
 app.get('*', (req,res) => {
     res.sendFile(path.join(__dirname + "/build/index.html"))
 })
