@@ -25,7 +25,6 @@ class Profile extends Component {
   };
 
   onChange(e, index) {
-    console.log(index);
     if (index === 1) {
       this.setState({
         profile: true,
@@ -49,7 +48,6 @@ class Profile extends Component {
     this.setState({
       visible: false,
     });
-    console.log(Cookies.get("User"));
     Axios.post("https://novellife.herokuapp.com/api/user/logout", {
       email: Cookies.get("User"),
     })
@@ -66,7 +64,6 @@ class Profile extends Component {
         }
       })
       .catch((error) => {
-        console.log(error);
       });
   }
   handleOk=(e)=> {
@@ -84,18 +81,15 @@ class Profile extends Component {
         }
       })
       .catch((error) => {
-        console.log(error);
       });
   }
   handleCancel = (e) => {
-    console.log(e);
     this.setState({
       visible: false,
     });
   };
 
   onCollapse = (collapsed) => {
-    console.log(collapsed);
     this.setState({ collapsed });
   };
   render() {
