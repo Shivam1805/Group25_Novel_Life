@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Link, Redirect } from "react-router-dom";
 import Home from "./pages/home";
 import News from "./pages/news";
 import Help from "./pages/help";
+import Donation from "./pages/donation";
 import SymptomChecker from "./pages/SymptomChecker";
 import Nextquestion from "./pages/SymptomChecker/Nextquestion";
 import NegativeOutcome from "./pages/SymptomChecker/NegativeOutcome";
@@ -34,6 +35,7 @@ import {
   CloudOutlined,
   CheckCircleOutlined,
   MoneyCollectOutlined,
+  HeartOutlined,
 } from "@ant-design/icons";
 const { Header, Content, Footer } = Layout;
 
@@ -168,6 +170,10 @@ export default class App extends Component {
                 <CarOutlined />
                 <Link to="/travel">Travel</Link>
               </Menu.Item>
+              <Menu.Item key="13">
+                <HeartOutlined />
+                <Link to="/donate">Donate</Link>
+              </Menu.Item>
             </Menu>
           </Header>
           <Content
@@ -246,6 +252,7 @@ export default class App extends Component {
               <Route path="/travel/" exact component={Travel} />
               <Route path="/map/" exact component={Map} />
               <Route path="/data/" exact component={Data} />
+              <Route path="/donate/" exact component={Donation} />
               <Route
                 path="/forgotpassword"
                 exact
