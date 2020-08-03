@@ -244,7 +244,7 @@ class RegistrationPage extends React.Component {
         break;
     }
 
-    this.setState({ formErrors, [name]: value }, () => console.log());
+    this.setState({ formErrors, [name]: value });
   };
 
   render() {
