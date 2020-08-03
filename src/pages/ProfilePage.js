@@ -17,7 +17,6 @@ class ProfilePage extends Component {
       email: Cookies.get("User"),
     })
       .then((response) => {
-        console.log("In Profile" + response.data[0].email);
         if (response.statusText === "OK") {
           this.setState({
             name: response.data[0].name,
@@ -27,7 +26,6 @@ class ProfilePage extends Component {
         }
       })
       .catch((error) => {
-        console.log(error);
       });
   }
 
