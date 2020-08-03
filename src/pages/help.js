@@ -56,7 +56,7 @@ onSubmitform = (e) => {
   })
   .then((response) => {
     this.props.history.push('/');
-    console.log(response);
+    //console.log(response);
   }, (error) => {
     console.log(error);
   });
