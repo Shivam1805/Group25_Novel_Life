@@ -59,7 +59,6 @@ class changePassword extends Component {
                 1000
               );
             });
-            console.log(response);
           } else {
             setTimeout(() => {
               message.error(
@@ -71,7 +70,6 @@ class changePassword extends Component {
           // setUserSession(response.data.id, response.data.email)
         })
         .catch((error) => {
-          console.log(error);
           setTimeout(() => {
             message.error(
               { content: "Invalid Email or Password!!", duration: 2 },
