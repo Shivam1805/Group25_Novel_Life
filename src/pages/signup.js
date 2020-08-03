@@ -32,7 +32,6 @@ class RegistrationPage extends React.Component {
   }
 
   handleSuccessfulRegistration(data) {
-    console.log(data);
     this.props.handleLogin(data);
     this.props.history.push("/profile");
   }
