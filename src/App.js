@@ -51,7 +51,6 @@ export default class App extends Component {
   }
 
   checkLoginStatus() {
-    console.log(Cookies.get("User"));
     if (Cookies.get("User")) {
       Axios.post("https://novellife.herokuapp.com/api/user/current", {
         email: Cookies.get("User"),
@@ -67,10 +66,8 @@ export default class App extends Component {
               loggedInStatus: true,
             });
           }
-          console.log(response);
         })
         .catch((error) => {
-          console.log(error);
         });
     }
   }
