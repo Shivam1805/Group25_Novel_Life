@@ -29,7 +29,6 @@ class LoginPage extends React.Component {
   }
 
   handleSuccessfulLogin(data){
-    console.log(data)
     this.props.handleLogin(data);
     this.props.history.push("/");
   }
@@ -73,12 +72,10 @@ class LoginPage extends React.Component {
         .then((response) => {
           if (response.statusText === "OK") {
             this.handleSuccessfulLogin(response.data);
-            console.log(response);
           }
           // setUserSession(response.data.id, response.data.email)
         })
         .catch((error) => {
-          console.log(error);
           setTimeout(()=>{
             message.error({content:"Invalid Email or Password!!", duration: 2},1000);
           })
