@@ -53,7 +53,6 @@ Function : Sending symptiom questions data
 router.get('/symptom',(req,res)=>{
     symptom.find()
     .then(data=>{
-     console.log(data)
        return res.status(200).json(data)
     })
     .catch(err=>{
@@ -69,7 +68,6 @@ Function : Sending answers data
 router.get('/answers',(req,res)=>{
     symptomans.find()
     .then(data=>{
-     console.log(data)
        return res.status(200).json(data)
     })
     .catch(err=>{
