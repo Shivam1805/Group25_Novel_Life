@@ -11,6 +11,4 @@ var MentalSchema = new mongoose.Schema({
 },
 {collection:'mentalhelp'});
 
-// MentalSchema.set('toJSON', { virtuals: true });
-
 module.exports = mongoose.model("mentalHelp", MentalSchema);

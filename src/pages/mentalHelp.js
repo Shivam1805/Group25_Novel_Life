@@ -33,16 +33,11 @@ function MentalHelp() {
                     <div className="class-card" key={data._id}>
                         <Card>
                         <Card.Header className="card-head">{data.name}</Card.Header>
-                        {/* <Card.Title className="class-title-card" */}
-                        {/* <Card.Title> */}
-                        {/* <Card.Img  src={data.path} style={{ width:"100"}}/> */}
-                        {/* <Nav.Link href={data.hyperlink} target="_blank">{data.name}</Nav.Link> */}
                         <ListGroup className="list-group-flush" variant="flush">
                             <ListGroupItem><Card.Img src={data.path} style={{ width:"100"}}/></ListGroupItem>
                             <ListGroupItem>{data.contact}</ListGroupItem>
                             <ListGroupItem>{data.helptype}</ListGroupItem>
                         </ListGroup>
-                        {/* </Card.Title> */}
                         <Card.Footer><Nav.Link href={data.hyperlink} target="_blank">Visit</Nav.Link></Card.Footer>
                     </Card>
                   </div>  
