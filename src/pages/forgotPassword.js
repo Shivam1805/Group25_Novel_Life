@@ -57,7 +57,6 @@ class ForgotPassword extends Component {
               );
             });
             this.props.history.push("/login");
-            console.log(response);
           }
           // setUserSession(response.data.id, response.data.email)
         })
@@ -68,7 +67,6 @@ class ForgotPassword extends Component {
               1000
             );
           });
-          console.log(error);
         });
     } else {
       setTimeout(() => {
