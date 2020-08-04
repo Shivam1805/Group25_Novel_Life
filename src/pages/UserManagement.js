@@ -48,7 +48,7 @@ class Profile extends Component {
     this.setState({
       visible: false,
     });
-    Axios.post("https://novellife.herokuapp.com/api/user/logout", {
+    Axios.post("https://novel25.herokuapp.com/api/user/logout", {
       email: Cookies.get("User"),
     })
       .then((response) => {
@@ -67,7 +67,7 @@ class Profile extends Component {
       });
   }
   handleOk=(e)=> {
-    Axios.delete("https://novellife.herokuapp.com/api/user/" + Cookies.get("User"))
+    Axios.delete("https://novel25.herokuapp.com/api/user/" + Cookies.get("User"))
       .then((response) => {
         if (response.statusText === "OK") {
           Cookies.set("User", "");

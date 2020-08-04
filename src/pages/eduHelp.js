@@ -11,7 +11,7 @@ function EduHelp() {
     useEffect(() => { 
         axios
             .all([
-                axios.get("https://novellife.herokuapp.com/api/edu"),
+                axios.get("https://novel25.herokuapp.com/api/edu"),
             ])
             .then((responseArr) => {
                 setResults(responseArr[0].data);
