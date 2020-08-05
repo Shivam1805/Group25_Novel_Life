@@ -6,7 +6,6 @@ import Cookies from "js-cookie";
 import {
   DisconnectOutlined,
   PieChartOutlined,
-  UserOutlined,
   UserDeleteOutlined,
   FormOutlined,
 } from "@ant-design/icons";

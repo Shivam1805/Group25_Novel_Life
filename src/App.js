@@ -22,6 +22,7 @@ import ForgotPassword from "./pages/forgotPassword";
 import Travel from "./pages/travel";
 import Map from "./pages/map";
 import Data from "./pages/data";
+import Assistance from "./pages/Assistance";
 import "./style/comm.css";
 import { Layout, Button, Row, Col, Menu } from "antd";
 import {
@@ -36,6 +37,7 @@ import {
   CheckCircleOutlined,
   MoneyCollectOutlined,
   HeartOutlined,
+  TeamOutlined,
 } from "@ant-design/icons";
 const { Header, Content, Footer } = Layout;
 
@@ -165,11 +167,15 @@ export default class App extends Component {
               </Menu.Item>
               <Menu.Item key="12">
                 <CarOutlined />
-                <Link to="/travel">Travel</Link>
+                <Link to="/travel">travel</Link>
               </Menu.Item>
               <Menu.Item key="13">
                 <HeartOutlined />
-                <Link to="/donate">Donate</Link>
+                <Link to="/donate">donate</Link>
+              </Menu.Item>
+              <Menu.Item key="14">
+                <TeamOutlined />
+                <Link to="/assistance">assistance</Link>
               </Menu.Item>
             </Menu>
           </Header>
@@ -250,6 +256,7 @@ export default class App extends Component {
               <Route path="/map/" exact component={Map} />
               <Route path="/data/" exact component={Data} />
               <Route path="/donate/" exact component={Donation} />
+              <Route path="/assistance" exact component={Assistance} />
               <Route
                 path="/forgotpassword"
                 exact

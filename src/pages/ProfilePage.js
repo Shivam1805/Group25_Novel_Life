@@ -1,14 +1,10 @@
 import React, { Component } from "react";
-import { Layout, Menu, Row, Col, List } from "antd";
+import {Row, Col, List } from "antd";
 import Axios from "axios";
 import Cookies from "js-cookie";
 import { Avatar } from "antd";
 import {
-  DisconnectOutlined,
-  PieChartOutlined,
-  UserOutlined,
-  UserDeleteOutlined,
-  FormOutlined,
+  UserOutlined
 } from "@ant-design/icons";
 class ProfilePage extends Component {
   state = { name: "", email: "", contactNo: "" };
