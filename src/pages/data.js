@@ -103,7 +103,7 @@ function Data() {
                           margin:"1em",
                           backgroundColor:"#d9534f"
                         }}>
-                      <Meta title={latest.deaths} />
+                      <h1 style={{fontSize:"3em"}}>{latest.deaths}</h1>
                       <br></br>
                       <small>Last Updated {lastUpdated} </small>
                       </Card>
@@ -119,7 +119,7 @@ function Data() {
                         margin:"1em",
                         backgroundColor:"#5cb85c"
                       }}>
-                      <Meta title={latest.recovered} />
+                      <h1 style={{fontSize:"3em"}}>{latest.recovered}</h1>
                       <br></br>
                       <small>Last Updated {lastUpdated} </small>
                       </Card>
@@ -136,7 +136,7 @@ function Data() {
                         margin:"1em",
                         backgroundColor:"#5bc0de"
                       }}>
-                         <Meta title={latest.active} />
+                        <h1 style={{fontSize:"3em"}}>{latest.active}</h1>
                       
                       <br></br>
                       <small>Last Updated {lastUpdated} </small>

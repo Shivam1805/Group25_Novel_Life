@@ -34,6 +34,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-twitter-embed": "^3.0.3",
+    "sweetalert2": "^9.17.1",
     "yup": "^0.29.1"
   },
   "scripts": {

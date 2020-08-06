@@ -57,7 +57,7 @@ function News() {
         </Row>
 
         <Row align="center"><TwitterHashtagButton
-    tag={'novallife'}></TwitterHashtagButton></Row>
+    tag={'novellife'}></TwitterHashtagButton></Row>
         <br></br>
         <Row>
 

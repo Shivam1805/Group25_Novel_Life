@@ -466,3 +466,4 @@ class RegistrationPage extends React.Component {
 }
 
 export default RegistrationPage;
+

@@ -36,6 +36,9 @@ app.use('/api/edu', eduRoute);
 const mentalRoute = require('./src/backend/Route/mentalRoute');
 app.use('/api/mental', mentalRoute);
 
+const taskRoute = require('./src/backend/Route/taskRoute');
+app.use('/api/seekassist', taskRoute);
+
 app.get('*', (req,res) => {
     res.sendFile(path.join(__dirname + "/build/index.html"))
 })

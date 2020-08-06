@@ -1,19 +1,104 @@
 import React, { Component } from "react";
-import {Row, Col} from "antd";
-import { Form } from "react-bootstrap";
+import {Row} from "antd";
+import Axios from "axios";
+import Swal from 'sweetalert2';
 
 class Assistance extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-
+          firstname: "",
+          lastname: "",
+          email: "",
+          contactno: "",
+          gender: "",
+          age: 18,
+          date: "",
+          desc: "",
           }
       }
 
+    setFirstName = (event) =>{
+      const firstname = event.target.value
+      this.setState({firstname: firstname})
+    }
+
+    setLastName = (event) =>{
+      const lastname = event.target.value
+      this.setState({lastname: lastname})
+    }
+
+    setEmail = (event) =>{
+      const email = event.target.value
+      this.setState({email: email})
+    }
+
+    setContact = (event) =>{
+      const contactno = event.target.value
+      this.setState({contactno: contactno})
+    }
+
+    setGender = (event) =>{
+      const gender = event.target.value
+      this.setState({gender: gender})
+    }
+
+    setAge = (event) =>{
+      const age = event.target.value
+      this.setState({age: age})
+    }
+
+    setDate = (event) =>{
+      const date = event.target.value
+      this.setState({date: date})
+    }
+
+    setDesc = (event) =>{
+      const desc = event.target.value
+      this.setState({desc: desc})
+    }
+
+    createTask = (event) =>{
+      event.preventDefault();
+
+      Axios.post("http://novellife.herokuapp.com/api/seekassist/requestAssistance", {
+                firstname: this.state.firstname,
+                lastname: this.state.lastname,
+                email: this.state.email,
+                contactno: this.state.contactno,
+                gender: this.state.gender,
+                age: this.state.age,
+                date: this.state.date,
+                desc: this.state.desc,
+              })
+                .then((response) => {
+                  console.log("then");
+                    if (response.status == 201) {
+                      console.log(response.status);
+                        Swal.fire({
+                          icon:'success',
+                          title:'Request Placed Successfully!',
+                          confirmButtonText: '<a href="http://novellife.herokuapp.com/api/seekassist/success/" style={{color:"#FFFFFF"}}>Click here for instructions</a>',
+                        })
+                    } 
+                    else {
+                      console.log(response.status);
+                      Swal.fire({
+                        icon: 'error',
+                        title: 'Error Placing Request',
+                        text: 'You can request assistance only once for a particular date. Try another date!'
+                      })
+                    }
+                  }).catch((error) => {
+                    console.log(error);
+                        throw error;
+                  });
+      } 
+
     render() { 
         return ( 
-            <div style={{ justifyContent: "center" }}>
+            <div style={{ justifyContent: "center", marginTop: "80px"}}>
         <Row style={{ justifyContent: "center" }}>
           <h1
             style={{
@@ -21,9 +106,8 @@ class Assistance extends Component {
               fontFamily: "Roboto, sans-serif",
               align: "center",
               justifyContent: "center",
-              fontSize: "4em",
-              marginTop: "80px",
-              marginBottom: "20px",
+              fontSize: "3em",
+              padding:"1em",
             }}>
             Seek Assistance
           </h1>
@@ -31,15 +115,15 @@ class Assistance extends Component {
 
         <Row style={{ justifyContent: "center" }}>
             
-            <Col>
+            {/* <Col style={{ justifyContent: "center" }}>
 
-            </Col>
-
-        <Col>
+            </Col> */}
+ 
           <form
-            style={{ width: "350px" }}
+            onSubmitCapture={this.createTask}
+            style={{ width: "350px", justifyContent:"center"  }}
             noValidate>
-            <Form.Group>
+
               <input
                 type="text"
                 style={{
@@ -53,13 +137,31 @@ class Assistance extends Component {
                   marginBottom: "10px",
                   borderColor: "#2593FC",
                 }}
-                name="formName"
-
-                placeholder="Name"
+                name="firstname"
+                required
+                placeholder="First Name"
+                onChange={this.setFirstName}
               />
-              
-            </Form.Group>
-            <Form.Group>
+          
+              <input
+                type="text"
+                style={{
+                  backgroundColor: "#011528",
+                  color: "#2593FC",
+                  fontFamily: "Roboto Thick, sans-serif",
+                  fontWeight: "200",
+                  padding: "10px",
+                  boxShadow: "none",
+                  width: "100%",
+                  marginBottom: "10px",
+                  borderColor: "#2593FC",
+                }}
+                name="lastname"
+                required
+                placeholder="Last Name"
+                onChange={this.setLastName}
+              />
+                
               <input
                 type="email"
                 style={{
@@ -73,17 +175,13 @@ class Assistance extends Component {
                   marginBottom: "10px",
                   borderColor: "#2593FC",
                 }}
-                name="emailID"
+                name="email"
                 required
                 placeholder="Email"
+                onChange={this.setEmail}
               />
               
-            </Form.Group>
-
-
-            <Form.Group>
-              <input
-                type="text"
+            <input
                 style={{
                   backgroundColor: "#011528",
                   color: "#2593FC",
@@ -95,16 +193,12 @@ class Assistance extends Component {
                   marginBottom: "10px",
                   borderColor: "#2593FC",
                 }}
-                name="phoneNumber"
-                noValidate
-               
+                name="contactno"
                 required
-                placeholder="Contact No."
+                placeholder="Enter Contact (XXX-XXX-XXXX)"
+                onChange={this.setContact}
               />
-              
-            </Form.Group>
-
-            <Form.Group>
+            
               <input
                 type="text"
                 style={{
@@ -119,7 +213,9 @@ class Assistance extends Component {
                   borderColor: "#2593FC",
                 }}
                 name="gender"
+                required
                 placeholder="Gender"
+                onChange={this.setGender}
               />
 
               <input 
@@ -137,13 +233,12 @@ class Assistance extends Component {
                 textColor: "white",
               }}
               name="age"
+              required
               placeholder="Age"
-              min="1"
-              />
-
-            </Form.Group>
-
-            <Form.Group>
+              min="18"
+              max="90"
+              onChange={this.setAge}
+              />      
 
             <input
                 type="text"
@@ -159,12 +254,11 @@ class Assistance extends Component {
                   borderColor: "#2593FC",
                 }}
                 name="date"
+                required
                 placeholder="Date of Assistance: dd/mm/yyyy"
+                onChange={this.setDate}
               />
-
-            </Form.Group>
-
-            <Form.Group>
+          
             <textarea
                 rows="5"
                 style={{
@@ -179,29 +273,10 @@ class Assistance extends Component {
                   borderColor: "#2593FC",
                 }}
                 name="desc"
+                required
                 placeholder="Describe assistance or task in detail"
+                onChange={this.setDesc}
               />
-
-            </Form.Group>
-
-            <Form.Group>
-            <input
-                style={{
-                  backgroundColor: "#011528",
-                  color: "#2593FC",
-                  fontFamily: "Roboto Thick, sans-serif",
-                  fontWeight: "200",
-                  padding: "10px",
-                  boxShadow: "none",
-                  width: "100%",
-                  marginBottom: "10px",
-                  borderColor: "#2593FC",
-                }}
-                name="contactno"
-                placeholder="Enter Contact Info: +1-XXX-XXX-XXXX"
-              />
-
-            </Form.Group>
 
             <button
               type="submit"
@@ -221,7 +296,7 @@ class Assistance extends Component {
               Request Assistance
             </button>
           </form>
-          </Col>
+ 
         </Row>
       </div>
          );

@@ -23,7 +23,10 @@ import Travel from "./pages/travel";
 import Map from "./pages/map";
 import Data from "./pages/data";
 import Assistance from "./pages/Assistance";
+import Instruction from "./pages/instruction";
+import Errorassist from "./pages/errorassist";
 import "./style/comm.css";
+
 import { Layout, Button, Row, Col, Menu } from "antd";
 import {
   HomeOutlined,
@@ -124,58 +127,81 @@ export default class App extends Component {
                 </Button>
               </Col>
             </Row>
-            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
-              <Menu.Item key="1">
-                <HomeOutlined />
-                <span>
-                  <Link to="/">home</Link>
+
+            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]} style={{color:"#faa2a4", outlineColor:"#82c1ff"}}>
+              <Menu.Item key="1" style={{color:"#b4daff"}}>
+                <HomeOutlined style={{color:"#b4daff"}}/>
+                <span style={{color:"#b4daff"}}>
+                  <Link to="/" style={{color:"#b4daff"}}>home</Link>
                 </span>
               </Menu.Item>
-              <Menu.Item key="2">
-                <ReadOutlined />
-                <span>
-                  <Link to="/news">news</Link>
+              <Menu.Item key="2" style={{color:"#b4daff"}}>
+                <ReadOutlined style={{color:"#b4daff"}}/>
+                <span style={{color:"#b4daff"}} >
+                  <Link to="/news" style={{color:"#b4daff"}}>news</Link>
                 </span>
               </Menu.Item>
-              <Menu.Item key="3">
-                <SmileOutlined />
-                <span>
-                  <Link to="/help">help</Link>
+              <Menu.Item key="3" style={{color:"#b4daff"}}>
+                <SmileOutlined style={{color:"#b4daff"}}/>
+                <span style={{color:"#b4daff"}}>
+                  <Link to="/help" style={{color:"#b4daff"}}>help</Link>
                 </span>
               </Menu.Item>
-              <Menu.Item key="4">
-                <PieChartOutlined />
-                <Link to="/data"> data</Link>
+              <Menu.Item key="4" style={{color:"#b4daff"}}>
+                <PieChartOutlined style={{color:"#b4daff"}}/>
+                <span style={{color:"#b4daff"}} >
+                <Link to="/data" style={{color:"#b4daff"}}> data</Link>
+                </span>
+                
               </Menu.Item>
-              <Menu.Item key="5">
-                <EnvironmentOutlined />
+              <Menu.Item key="5" style={{color:"#b4daff"}}>
+                <EnvironmentOutlined style={{color:"#b4daff"}}/>
                 <span>
-                  <Link to="/map">map</Link>
+                  <Link to="/map" style={{color:"#b4daff"}}>map</Link>
                 </span>
               </Menu.Item>
-              <Menu.Item key="6">
-                <CloudOutlined />
-                <Link to="/resource/">resources</Link>
+
+              <Menu.Item key="6" >
+                <CloudOutlined style={{color:"#b4daff"}}/>
+                <span>
+                <Link to="/resource/" style={{color:"#b4daff"}}>resources</Link>
+                </span>
+                
               </Menu.Item>
-              <Menu.Item key="10">
-                <CheckCircleOutlined />
-                <Link to="/SymptomChecker">symptom checker</Link>
+
+              <Menu.Item key="10" style={{color:"#b4daff"}}>
+                <CheckCircleOutlined style={{color:"#b4daff"}}/>
+                <span>
+                <Link to="/SymptomChecker" style={{color:"#b4daff"}}>symptom checker</Link>
+                </span>
               </Menu.Item>
-              <Menu.Item key="11">
-                <MoneyCollectOutlined />
-                <Link to="/fundchecker">funding</Link>
+
+              <Menu.Item key="11" style={{color:"#b4daff"}}>
+                <MoneyCollectOutlined style={{color:"#b4daff"}}/>
+                <span>
+                <Link to="/fundchecker" style={{color:"#b4daff"}}>funding</Link>
+                </span>
               </Menu.Item>
-              <Menu.Item key="12">
-                <CarOutlined />
-                <Link to="/travel">travel</Link>
+
+              <Menu.Item key="12" style={{color:"#b4daff"}}>
+                <CarOutlined style={{color:"#b4daff"}}/>
+                <span>
+                <Link to="/travel"style={{color:"#b4daff"}} >travel</Link>
+                </span>
               </Menu.Item>
-              <Menu.Item key="13">
-                <HeartOutlined />
-                <Link to="/donate">donate</Link>
+
+              <Menu.Item key="13" style={{color:"#b4daff"}}>
+                <HeartOutlined style={{color:"#b4daff"}}/>
+                <span>
+                <Link to="/donate" style={{color:"#b4daff"}}>donate</Link>
+                </span>
               </Menu.Item>
-              <Menu.Item key="14">
-                <TeamOutlined />
-                <Link to="/assistance">assistance</Link>
+
+              <Menu.Item key="14" style={{color:"#b4daff"}}>
+                <TeamOutlined style={{color:"#b4daff"}}/>
+                <span>
+                <Link to="/assistance" style={{color:"#b4daff"}}>assistance</Link>
+                </span>
               </Menu.Item>
             </Menu>
           </Header>
@@ -256,7 +282,9 @@ export default class App extends Component {
               <Route path="/map/" exact component={Map} />
               <Route path="/data/" exact component={Data} />
               <Route path="/donate/" exact component={Donation} />
-              <Route path="/assistance" exact component={Assistance} />
+              <Route path="/assistance/" exact component={Assistance} />
+              <Route path="/api/seekassist/error/" exact component = {Errorassist} />
+              <Route path="/api/seekassist/success/" exact component={Instruction} />
               <Route
                 path="/forgotpassword"
                 exact
@@ -271,8 +299,7 @@ export default class App extends Component {
               textAlign: "center",
               backgroundColor: "#011528",
               color: "#FFFF",
-            }}
-          >
+            }}>
             Novel Life ©2020 Created by Group 25
           </Footer>
         </Layout>
@@ -280,3 +307,5 @@ export default class App extends Component {
     );
   }
 }
+
+
