@@ -25,6 +25,7 @@ import Data from "./pages/data";
 import Assistance from "./pages/Assistance";
 import Instruction from "./pages/instruction";
 import "./style/comm.css";
+import Volunteer from "./pages/Volunteer";
 
 import { Layout, Button, Row, Col, Menu } from "antd";
 import {

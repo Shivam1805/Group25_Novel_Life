@@ -129,7 +129,8 @@ class LoginPage extends React.Component {
                     fontFamily: "Roboto Thick, sans-serif",
                     fontWeight: "200",
                     padding: "10px",
-                    boxShadow: "none",
+                    boxShadow:"0", 
+                    borderBlockColor:"#2593FC", 
                     marginBottom: "10px",
                     width: "100%",
                     borderColor: "#2593FC",
@@ -140,7 +141,7 @@ class LoginPage extends React.Component {
                     style={{
                       fontFamily: "Roboto Thick, sans-serif",
                       fontWeight: "200",
-                      color: "#2593FC",
+                      color: "#FF5F5F",
                     }}
                   >
                     {errors.formEmail}
@@ -162,7 +163,7 @@ class LoginPage extends React.Component {
                     fontFamily: "Roboto Thick, sans-serif",
                     fontWeight: "200",
                     padding: "10px",
-                    boxShadow: "none",
+                    boxShadow: "0",
                     width: "100%",
                     marginBottom: "10px",
                     borderColor: "#2593FC",
@@ -173,7 +174,7 @@ class LoginPage extends React.Component {
                     style={{
                       fontFamily: "Roboto Thick, sans-serif",
                       fontWeight: "200",
-                      color: "#2593FC",
+                      color: "#FF5F5F",
                     }}
                   >
                     {errors.formPassword}

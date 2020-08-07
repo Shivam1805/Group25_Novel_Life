@@ -300,7 +300,7 @@ class RegistrationPage extends React.Component {
                   style={{
                     fontFamily: "Roboto Thick, sans-serif",
                     fontWeight: "200",
-                    color: "#2593FC",
+                    color: "#FF5F5F",
                   }}
                 >
                   {formErrors.formName}
@@ -333,7 +333,7 @@ class RegistrationPage extends React.Component {
                   style={{
                     fontFamily: "Roboto Thick, sans-serif",
                     fontWeight: "200",
-                    color: "#2593FC",
+                    color: "#FF5F5F",
                   }}
                 >
                   {formErrors.emailID}
@@ -367,7 +367,7 @@ class RegistrationPage extends React.Component {
                   style={{
                     fontFamily: "Roboto Thick, sans-serif",
                     fontWeight: "200",
-                    color: "#2593FC",
+                    color: "#FF5F5F",
                   }}
                 >
                   {formErrors.formpassword}
@@ -401,7 +401,7 @@ class RegistrationPage extends React.Component {
                   style={{
                     fontFamily: "Roboto Thick, sans-serif",
                     fontWeight: "200",
-                    color: "#2593FC",
+                    color: "#FF5F5F",
                   }}
                 >
                   {formErrors.confirmPassword}
@@ -434,7 +434,7 @@ class RegistrationPage extends React.Component {
                   style={{
                     fontFamily: "Roboto Thick, sans-serif",
                     fontWeight: "200",
-                    color: "#2593FC",
+                    color: "#FF5F5F",
                   }}
                 >
                   {formErrors.phoneNumber}

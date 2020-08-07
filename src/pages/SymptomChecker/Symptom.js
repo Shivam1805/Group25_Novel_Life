@@ -96,16 +96,15 @@ class Symptom extends Component {
     return (
     
         <Row>
-        <div>
+
+        <div style={{width:"100%", padding:"1em"}}>
                  {this.state.questions.length>0 && this.state.inc<this.state.questions.length?<Questionpage item={this.state.questions} i = {this.state.inc} fun = {this.captureValue}/> :null}
-                 
                  <p>
-                     {this.state.ans!=""?<button type="button"  onClick = {this.changeQuestion} style ={{margin:"10px", marginTop:"10px", color:"white", fontFamily: "Roboto Thick, sans-serif", fontSize:"14px" ,padding: "14px", boxShadow: "none",
-                    backgroundColor: "#2593FC",
-                    color: "#FFFF",
-                    borderColor: "#2593FC",
-                    fontWeight: "0",}}>Submit</button>:null}
-                     <br></br><br></br> <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+                     {this.state.ans!=""?<button type="button"  onClick = {this.changeQuestion} style ={{color:"white", fontFamily: "Roboto Thick, sans-serif", fontSize:"13px" ,
+                     padding: "20px", boxShadow: "none", margin:"0.5em",
+                    backgroundColor: "#2593FC", color: "#FFFFFF",borderColor: "#2593FC", boxShadow:"0", borderBlockColor:"#2593FC", border:"none",
+                    fontWeight: "0px", width:"100px", marginTop:"1em"}}>submit</button>:null}
+ 
                 </p>
         </div >
         <div style={{visibility: this.state.v}}>

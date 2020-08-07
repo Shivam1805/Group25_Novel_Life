@@ -24,14 +24,12 @@ class Questionpage extends Component{
     render(){
         return (
 
-            <div style={{ padding:"1em", marginTop:"100px", justifyContent:"center", justifySelf:"center"}}>
+            <div style={{ padding:"1em", justifyContent:"center", justifySelf:"center"}}>
             <div >
-                        <div >
-                            <p style ={{fontSize : "20px", color:"#FFFF", fontVariant:"small-caps"}}><b>Questionnaire</b></p>
-                        </div>
 
                         <div>
-        <label  style ={{fontSize:"30px",textAlign:"center", color:"#FFFF" , fontVariant:"small-caps"}}> {this.props.item[this.props.i].question}</label>
+        <label  style ={{fontSize:"30px",textAlign:"center", color:"#FFFF" , 
+        fontVariant:"small-caps"}}> {this.props.item[this.props.i].question}</label>
          <br></br>   
          <br></br>
             
@@ -41,7 +39,7 @@ class Questionpage extends Component{
                                    value={this.props.item[this.props.i].option1}
                                    onClick={this.capturevalues}
                                     />
-            <label for="site_name" style ={{fontSize:"19px",textAlign:"center", color:"#FFFF" , fontVariant:"small-caps"}}> {this.props.item[this.props.i].option1}</label><br></br>
+            <label for="site_name" style ={{fontSize:"15px",textAlign:"center", color:"#FFFF" , padding:"2em", marginBottom:"2em", fontVariant:"small"}}> {this.props.item[this.props.i].option1}</label><br></br>
             
             
             <input type="radio" name="site_name2" 
@@ -49,7 +47,7 @@ class Questionpage extends Component{
                                    value={this.props.item[this.props.i].option2}
                                    onClick={this.capturevalues} 
                                    /> 
-            <label for="site_name2" style ={{fontSize:"19px",textAlign:"center", color:"#FFFF" , fontVariant:"small-caps"}}> {this.props.item[this.props.i].option2}</label><br></br>
+            <label for="site_name2" style ={{fontSize:"15px",textAlign:"center", color:"#FFFF" , padding:"2em", marginBottom:"2em",fontVariant:"small"}}> {this.props.item[this.props.i].option2}</label><br></br>
             
             
             <input type="radio" name="site_name3" 
@@ -57,7 +55,7 @@ class Questionpage extends Component{
                                    value={this.props.item[this.props.i].option3}
                                    onClick={this.capturevalues}
                                     />
-            <label for="site_name3" style ={{fontSize:"19px",textAlign:"center", color:"#FFFF" , fontVariant:"small-caps"}}> {this.props.item[this.props.i].option3}</label><br></br>
+            <label for="site_name3" style ={{fontSize:"15px",textAlign:"center", color:"#FFFF" , padding:"2em", marginBottom:"2em",fontVariant:"small"}}> {this.props.item[this.props.i].option3}</label><br></br>
 
                         </div>   
                 </div>

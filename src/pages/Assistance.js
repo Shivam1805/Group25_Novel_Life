@@ -305,12 +305,11 @@ class Assistance extends Component {
                 backgroundColor: "#2593FC",
                 color: "#FFFF",
                 borderColor: "#2593FC",
-              }}
-            >
+              }}>
               Request Assistance
             </button>
           </form>
- 
+
         </Row>
       </div>
          );
