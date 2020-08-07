@@ -7,7 +7,7 @@ import { Row } from 'antd';
 const Fund = (props) => {
     return (
         <Row>
-        <div className="checkwrapper" style={{justifyContent:"center"}}>
+        <div  style={{justifyContent:"center"}}>
                         <div className ="img" style={{justifyContent:"center"}}>
                             <p style ={{fontSize : "20px", color:"#FFFF", fontVariant:"small-caps"}}><b>Questionnaire</b></p>
                         </div>

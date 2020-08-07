@@ -100,7 +100,11 @@ class Symptom extends Component {
                  {this.state.questions.length>0 && this.state.inc<this.state.questions.length?<Questionpage item={this.state.questions} i = {this.state.inc} fun = {this.captureValue}/> :null}
                  
                  <p>
-                     {this.state.ans!=""?<button type="button"  onClick = {this.changeQuestion} style ={{fontSize:"20px", margin:"10px", marginTop:"10px", color:"#011528"}}>submit</button>:null}
+                     {this.state.ans!=""?<button type="button"  onClick = {this.changeQuestion} style ={{margin:"10px", marginTop:"10px", color:"white", fontFamily: "Roboto Thick, sans-serif", fontSize:"14px" ,padding: "14px", boxShadow: "none",
+                    backgroundColor: "#2593FC",
+                    color: "#FFFF",
+                    borderColor: "#2593FC",
+                    fontWeight: "0",}}>Submit</button>:null}
                      <br></br><br></br> <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
                 </p>
         </div >

@@ -62,38 +62,52 @@ class Assistance extends Component {
     createTask = (event) =>{
       event.preventDefault();
 
-      Axios.post("http://novellife.herokuapp.com/api/seekassist/requestAssistance", {
-                firstname: this.state.firstname,
-                lastname: this.state.lastname,
-                email: this.state.email,
-                contactno: this.state.contactno,
-                gender: this.state.gender,
-                age: this.state.age,
-                date: this.state.date,
-                desc: this.state.desc,
-              })
-                .then((response) => {
-                  console.log("then");
-                    if (response.status == 201) {
-                      console.log(response.status);
-                        Swal.fire({
-                          icon:'success',
-                          title:'Request Placed Successfully!',
-                          confirmButtonText: '<a href="http://novellife.herokuapp.com/api/seekassist/success/" style={{color:"#FFFFFF"}}>Click here for instructions</a>',
-                        })
-                    } 
-                    else {
-                      console.log(response.status);
-                      Swal.fire({
-                        icon: 'error',
-                        title: 'Error Placing Request',
-                        text: 'You can request assistance only once for a particular date. Try another date!'
-                      })
-                    }
-                  }).catch((error) => {
-                    console.log(error);
-                        throw error;
-                  });
+      if(this.state.firstname == null || this.state.lastname == null || this.state.email == null || 
+        this.state.contactno == null || this.state.gender == null || this.state.age == null || this.state.date == null ||
+        this.state.desc == null || this.state.firstname == "" || this.state.lastname == "" || this.state.email == "" || 
+        this.state.contactno == "" || this.state.gender == "" || this.state.age == "" || this.state.date == "" ||
+        this.state.desc == ""){
+          Swal.fire({
+            icon: 'error',
+            title: 'Error Placing Request',
+            text: 'Please make sure you have filled out everything!'
+          })
+        }
+        else{
+
+          Axios.post("http://novellife.herokuapp.com/api/seekassist/requestAssistance", {
+            firstname: this.state.firstname,
+            lastname: this.state.lastname,
+            email: this.state.email,
+            contactno: this.state.contactno,
+            gender: this.state.gender,
+            age: this.state.age,
+            date: this.state.date,
+            desc: this.state.desc,
+          })
+            .then((response) => {
+              console.log("then");
+                if (response.status == 201) {
+                  console.log(response.status);
+                    Swal.fire({
+                      icon:'success',
+                      title:'Request Placed Successfully!',
+                      confirmButtonText: '<a href="http://novellife.herokuapp.com/api/seekassist/success/" style={{color:"#FFFFFF"}}>Click here for instructions</a>',
+                    })
+                } 
+                else {
+                  console.log(response.status);
+                  Swal.fire({
+                    icon: 'error',
+                    title: 'Error Placing Request',
+                    text: 'You can request assistance only once for a particular date. Try another date!'
+                  })
+                }
+              }).catch((error) => {
+                console.log(error);
+                    throw error;
+              });
+        }
       } 
 
     render() { 

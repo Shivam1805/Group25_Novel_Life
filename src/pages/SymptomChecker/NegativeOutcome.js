@@ -3,10 +3,7 @@ import React from 'react';
 import './NegativeOutcomecss.css'
 const negativequestion = () => {
 return(
-<div className = "wrap3">
-    <div className = "img3">
-       
-    </div>
+<div className = "wrap2">
     <p style ={{fontSize:"25px", color:"#011528"}}><b>Based on your answers, you do not seem to have symptoms or be part of an at-risk group. We recommend that you be cautious when outside and keep a distance from others as much as possible</b></p> 
     
     <p><b style={{color:"#011528"}}> All Nova Scotians have a responsibility to help prevent the spread of COVID-19. There are steps you can take to protect yourself and others.</b></p>

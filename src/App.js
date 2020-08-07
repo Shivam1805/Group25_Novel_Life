@@ -24,7 +24,6 @@ import Map from "./pages/map";
 import Data from "./pages/data";
 import Assistance from "./pages/Assistance";
 import Instruction from "./pages/instruction";
-import Errorassist from "./pages/errorassist";
 import "./style/comm.css";
 
 import { Layout, Button, Row, Col, Menu } from "antd";
@@ -283,7 +282,6 @@ export default class App extends Component {
               <Route path="/data/" exact component={Data} />
               <Route path="/donate/" exact component={Donation} />
               <Route path="/assistance/" exact component={Assistance} />
-              <Route path="/api/seekassist/error/" exact component = {Errorassist} />
               <Route path="/api/seekassist/success/" exact component={Instruction} />
               <Route
                 path="/forgotpassword"
