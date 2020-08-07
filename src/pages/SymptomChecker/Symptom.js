@@ -25,7 +25,7 @@ class Symptom extends Component {
         };
       
       componentWillMount(){
-        Axios.get('https://novel25.herokuapp.com/api/assist/symptom')
+        Axios.get('https://group25novellife.herokuapp.com/api/assist/symptom')
         .then(res=>{
             const q = [...res.data]
              this.setState({
@@ -37,7 +37,7 @@ class Symptom extends Component {
           });
 
 
-        Axios.get('https://novel25.herokuapp.com/api/assist/answers')
+        Axios.get('https://group25novellife.herokuapp.com/api/assist/answers')
         .then(res=>{
             const q1 = [...res.data]
             this.setState({

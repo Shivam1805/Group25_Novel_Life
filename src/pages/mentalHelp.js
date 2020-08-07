@@ -11,7 +11,7 @@ function MentalHelp() {
     useEffect(() => { 
         axios
             .all([
-                axios.get("https://novel25.herokuapp.com/api/mental"),
+                axios.get("https://group25novellife.herokuapp.com/api/mental"),
             ])
             .then((responseArr) => {
                 setResults(responseArr[0].data);

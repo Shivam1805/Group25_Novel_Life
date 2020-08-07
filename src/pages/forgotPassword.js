@@ -47,7 +47,7 @@ class ForgotPassword extends Component {
       errors.formEmail = "Please fill out Email!";
     }
     if (validateForm(errors)) {
-      Axios.get("https://novel25.herokuapp.com/api/user/forgotpassword/" + formEmail)
+      Axios.get("https://group25novellife.herokuapp.com/api/user/forgotpassword/" + formEmail)
         .then((response) => {
           if (response.statusText === "OK") {
             setTimeout(() => {

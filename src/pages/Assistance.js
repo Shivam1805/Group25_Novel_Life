@@ -75,7 +75,7 @@ class Assistance extends Component {
         }
         else{
 
-          Axios.post("http://novellife.herokuapp.com/api/seekassist/requestAssistance", {
+          Axios.post("https://group25novellife.herokuapp.com/api/seekassist/requestAssistance", {
             firstname: this.state.firstname,
             lastname: this.state.lastname,
             email: this.state.email,
@@ -86,13 +86,13 @@ class Assistance extends Component {
             desc: this.state.desc,
           })
             .then((response) => {
-              console.log("then");
+              
                 if (response.status == 201) {
-                  console.log(response.status);
+                  
                     Swal.fire({
                       icon:'success',
                       title:'Request Placed Successfully!',
-                      confirmButtonText: '<a href="http://novellife.herokuapp.com/api/seekassist/success/" style={{color:"#FFFFFF"}}>Click here for instructions</a>',
+                      confirmButtonText: '<a href="https://group25novellife.herokuapp.com/api/seekassist/success/" style={{color:"#FFFFFF"}}>Click here for instructions</a>',
                     })
                 } 
                 else {
@@ -104,7 +104,7 @@ class Assistance extends Component {
                   })
                 }
               }).catch((error) => {
-                console.log(error);
+                
                     throw error;
               });
         }
