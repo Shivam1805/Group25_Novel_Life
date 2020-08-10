@@ -241,6 +241,11 @@ export default class App extends Component {
                 loggedIn={this.state.loggedInStatus}
                 component={Profile}
               />
+              <ProtectedRoute 
+              path="/volunteer"
+              loggedIn={this.state.loggedInStatus}
+              component={Volunteer}
+              />
               <Route
                 path="/signup/"
                 exact

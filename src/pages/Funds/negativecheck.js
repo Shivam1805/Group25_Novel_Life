@@ -4,44 +4,22 @@ import "./negativecheck.css";
 import { Row } from "antd";
 const negativecheck = () => {
   return (
-    <Row style={{ justifyContent: "center", height: "100%", width: "100%" }}>
-      <div
-        className="checkwrap3"
+    <div style={{ justifyContent: "center", height: "500px", width: "100%", marginTop:"100px", padding:"3em" }}>
+    <Row style={{ justifyContent: "center"}}>
+      <h1
         style={{
           justifyContent: "center",
-          height: "100%",
-          width: "100%",
+          align: "center",
+          color: "#FFFF",
+          fontFamily: "Roboto Thick, sans-serif",
           textAlign: "center",
-        }}
-      >
-        <p
-          style={{
-            fontSize: "35px",
-            justifyContent: "center",
-            height: "100%",
-            width: "100%",
-            textAlign: "center",
-          }}
-        >
-          <b
-            style={{
-              justifyContent: "center",
-              align: "center",
-              color: "#FFFF",
-              textAlign: "center",
-            }}
-          >
-            You are eligible for CERB
-          </b>
-        </p>
-        <a
-          style={{ fontSize: "18px", textDecoration: "underline" }}
-          href="https://www.canada.ca/en/services/benefits/covid19-emergency-benefits.html"
-        >
-          Know more
-        </a>
-      </div>
+          fontWeight:"200",
+          fontSize:"3em",
+        }}>
+        Unfortunately, you are NOT eligible for CESB and CEWS. 
+      </h1>
     </Row>
+</div>
   );
 };
 export default negativecheck;
