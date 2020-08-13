@@ -25,7 +25,9 @@ import Data from "./pages/data";
 import Assistance from "./pages/Assistance";
 import Instruction from "./pages/instruction";
 import "./style/comm.css";
-import Volunteer from "./pages/Volunteer";
+import Tasks from "./pages/Tasks";
+import { Tooltip } from 'antd';
+import ShowLogin from './pages/showlogin';
 
 import { Layout, Button, Row, Col, Menu } from "antd";
 import {
@@ -38,9 +40,10 @@ import {
   CarOutlined,
   CloudOutlined,
   CheckCircleOutlined,
-  MoneyCollectOutlined,
   HeartOutlined,
   TeamOutlined,
+  DollarOutlined,
+  WalletOutlined,
 } from "@ant-design/icons";
 const { Header, Content, Footer } = Layout;
 
@@ -51,7 +54,6 @@ export default class App extends Component {
       loggedInStatus: false,
       user: {},
     };
-
     this.handleLogin = this.handleLogin.bind(this);
   }
 
@@ -105,7 +107,7 @@ export default class App extends Component {
             }}
           >
             <Row type="flex" justify="space-between">
-              <Col xs={20} sm={20} md={18} lg={16} xl={14}>
+              <Col>
                 <span
                   className="header-logo"
                   style={{
@@ -119,16 +121,41 @@ export default class App extends Component {
                   NOVEL LIFE{" "}
                 </span>
               </Col>
-              <Col xs={4} sm={4} md={4} lg={4} xl={4}>
-                <Button type="primary" shape="circle">
+
+              <Col>
+
+              <Tooltip title="Login">
+                  <span>
+
+                  <Button type="primary" shape="circle" style={{marginRight:"10px"}} >
                   <a href="/login">
                     <UserOutlined />
                   </a>
                 </Button>
+
+                  </span>
+              </Tooltip>
+
+               
+              <Tooltip title="Volunteer">
+                  <span>
+                <Button type="primary" shape="circle" style={{marginRight:"10px"}} >
+                  <a href="/volunteer">
+                  <HeartOutlined />
+                  </a>
+                </Button>
+                </span>
+               </Tooltip>
               </Col>
+
             </Row>
 
-            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]} style={{color:"#faa2a4", outlineColor:"#82c1ff"}}>
+            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]} 
+            style={{color:"#faa2a4", 
+            outlineColor:"#82c1ff", 
+            width:"100%",
+            overflow:"auto"}} >
+
               <Menu.Item key="1" style={{color:"#b4daff"}}>
                 <HomeOutlined style={{color:"#b4daff"}}/>
                 <span style={{color:"#b4daff"}}>
@@ -177,7 +204,7 @@ export default class App extends Component {
               </Menu.Item>
 
               <Menu.Item key="11" style={{color:"#b4daff"}}>
-                <MoneyCollectOutlined style={{color:"#b4daff"}}/>
+                <DollarOutlined style={{color:"#b4daff"}}/>
                 <span>
                 <Link to="/fundchecker" style={{color:"#b4daff"}}>funding</Link>
                 </span>
@@ -191,7 +218,7 @@ export default class App extends Component {
               </Menu.Item>
 
               <Menu.Item key="13" style={{color:"#b4daff"}}>
-                <HeartOutlined style={{color:"#b4daff"}}/>
+        <WalletOutlined style={{color:"#b4daff"}}/>
                 <span>
                 <Link to="/donate" style={{color:"#b4daff"}}>donate</Link>
                 </span>
@@ -218,8 +245,7 @@ export default class App extends Component {
             <div
               className="site-layout-background"
               width="100%"
-              style={{ padding: 24, minHeight: 380, width: "100%" }}
-            >
+              style={{ padding: 24, minHeight: 380, width: "100%" }}>
               <Route path="/" exact component={Home} />
               <Route
                 path="/login/"
@@ -241,11 +267,25 @@ export default class App extends Component {
                 loggedIn={this.state.loggedInStatus}
                 component={Profile}
               />
-              <ProtectedRoute 
-              path="/volunteer"
-              loggedIn={this.state.loggedInStatus}
-              component={Volunteer}
-              />
+
+            <Route 
+              path="/volunteer/"
+              exact
+              render={(props) =>
+                
+                !this.state.loggedInStatus ? (
+                  <ShowLogin 
+                  />
+                ) : (    
+                  <Tasks 
+                    {...props}
+                    handleLogin={this.handleLogin}
+                    loggedInStatus={this.state.loggedInStatus} 
+                  />
+                )
+                }
+                />
+
               <Route
                 path="/signup/"
                 exact
@@ -259,8 +299,8 @@ export default class App extends Component {
               <Route
                 path="/nextquestion"
                 exact
-                component={Nextquestion}
-              ></Route>
+                component={Nextquestion}> 
+              </Route>
               <Route
                 path="/negativeoutcome"
                 exact

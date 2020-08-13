@@ -50,13 +50,10 @@ function Data() {
         );
     });
 
-
-  
     return (
     <div className="container">
       <Row className="comm-main" type="flex" justify="center">
-        
-        
+      
           <div className="map-box">
 
                 <Row>
@@ -70,7 +67,6 @@ function Data() {
                   
                   <Row>
 
-                  
               <Container >
              <Row style={{width:"100%"}}>
                     <Col >
